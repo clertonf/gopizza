@@ -2,23 +2,14 @@
   "env": {
     "es2021": true
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    " react-native": {
-      "version": "detect"
-    }
-  },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["airbnb-base"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

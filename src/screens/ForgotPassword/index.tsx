@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { KeyboardAvoidingView, Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { useAuth } from "../../hooks/auth";
 
@@ -9,31 +10,25 @@ import { Button } from "../../components/Button";
 import brandImg from "../../assets/brand.png";
 
 import * as S from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { BackButton } from "../../components/BackButton";
 
-export function SignIn() {
+export function ForgotPassword() {
+  const navigation: any = useNavigation();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const { signIn, isLogging } = useAuth();
-  const navigation: any = useNavigation();
 
-  function handleSignIn() {
-    signIn(email, password);
-  }
-
-  function handleRecoverPassword() {
-    navigation.navigate("forgotPassword");
-  }
+  function handleSignIn() {}
 
   return (
     <S.Container>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
+        <BackButton onPress={navigation.goBack} />
         <S.Content>
           <S.Brand source={brandImg} />
-          <S.Title>Login</S.Title>
+          <S.Title>Recuperar senha</S.Title>
           <Input
             placeholder="E-mail"
             type="secondary"
@@ -42,21 +37,9 @@ export function SignIn() {
             onChangeText={setEmail}
           />
 
-          <Input
-            placeholder="Senha"
-            type="secondary"
-            autoCorrect={false}
-            autoCapitalize="none"
-            onChangeText={setPassword}
-          />
-
-          <S.ForgotPasswordButton onPress={handleRecoverPassword}>
-            <S.ForgotPasswordLabel>Esqueci minha senha</S.ForgotPasswordLabel>
-          </S.ForgotPasswordButton>
-
           <Button
             type="primary"
-            title="Entrar"
+            title="Enviar"
             onPress={handleSignIn}
             isLoading={isLogging}
           />
