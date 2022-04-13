@@ -19,7 +19,7 @@ export const Container = styled(RectButton)<ContainerProps>`
 `;
 
 export const Title = styled.Text`
-  font-size 14px;
+  font-size: 16px;
 
   ${({ theme }) => css`
     color: ${theme.COLORS.TITLE};
@@ -28,5 +28,5 @@ export const Title = styled.Text`
 `;
 
 export const Loading = styled.ActivityIndicator.attrs(({ theme }) => ({
-  color: theme.COLORS.TITLE,
+  color: theme.COLORS.TITLE
 }))``;

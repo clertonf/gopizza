@@ -5,7 +5,7 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 export const Container = styled(LinearGradient).attrs(({ theme }) => ({
   colors: theme.COLORS.GRADIENT,
   start: { x: 0, y: 1 },
-  end: { x: 0.5, y: 0.5 },
+  end: { x: 0.5, y: 0.5 }
 }))`
   flex: 1;
   justify-content: center;
@@ -14,15 +14,15 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
 export const Content = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
-    paddingBottom: getBottomSpace() + 48,
-  },
+    paddingBottom: getBottomSpace() + 48
+  }
 })`
   width: 100%;
   padding: 0 32px;
 `;
 
 export const Brand = styled.Image.attrs({
-  resizeMode: "contain",
+  resizeMode: "contain"
 })`
   height: 340px;
   margin-top: 64px;

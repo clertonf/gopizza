@@ -16,9 +16,11 @@ export function ForgotPassword() {
   const navigation: any = useNavigation();
   const [email, setEmail] = useState("");
 
-  const { signIn, isLogging } = useAuth();
+  const { forgotPassword, isLogging } = useAuth();
 
-  function handleSignIn() {}
+  function handleRecoverPassword() {
+    forgotPassword(email);
+  }
 
   return (
     <S.Container>
@@ -40,7 +42,7 @@ export function ForgotPassword() {
           <Button
             type="primary"
             title="Enviar"
-            onPress={handleSignIn}
+            onPress={handleRecoverPassword}
             isLoading={isLogging}
           />
         </S.Content>
