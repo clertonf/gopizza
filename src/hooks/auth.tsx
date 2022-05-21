@@ -78,6 +78,7 @@ function AuthProvider({ children }: AuthProviderProps) {
                 JSON.stringify(userData)
               );
               setUser(userData);
+              console.log(user);
             }
           })
           .catch(() => {
@@ -89,6 +90,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       })
       .catch((error) => {
         const { code } = error;
+        console.log(error);
 
         if (code === "auth/user-not-found" || code === "auth/wrong-password") {
           return Alert.alert("Login", "E-mail e/ou senha inválida");

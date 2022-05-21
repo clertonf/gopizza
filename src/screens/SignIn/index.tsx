@@ -16,14 +16,14 @@ export function SignIn() {
   const [password, setPassword] = useState("");
 
   const { signIn, isLogging } = useAuth();
-  const navigation: any = useNavigation();
+  const { navigate } = useNavigation();
 
   function handleSignIn() {
     signIn(email, password);
   }
 
   function handleRecoverPassword() {
-    navigation.navigate("forgotPassword");
+    navigate("forgotpassword");
   }
 
   return (

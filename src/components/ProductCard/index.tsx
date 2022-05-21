@@ -1,9 +1,10 @@
 import React from "react";
-import { RectButtonProps } from "react-native-gesture-handler";
+
 import { useTheme } from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
 
 import * as S from "./styles";
+import { TouchableOpacityProps } from "react-native";
 
 export type ProductProps = {
   id: string;
@@ -12,7 +13,7 @@ export type ProductProps = {
   description: string;
 };
 
-type ProductCardProps = RectButtonProps & {
+type ProductCardProps = TouchableOpacityProps & {
   data: ProductProps;
 };
 

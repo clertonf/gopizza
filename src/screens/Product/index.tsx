@@ -11,6 +11,8 @@ import firestore from "@react-native-firebase/firestore";
 import storage from "@react-native-firebase/storage";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
+import { useAuth } from "../../hooks/auth";
+
 import { ProductNavigationProps } from "../../@types/navigation";
 
 import { BackButton } from "../../components/BackButton";

@@ -2,29 +2,35 @@ import React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { SignIn } from "../screens/SignIn";
-import { ForgotPassword } from "../screens/ForgotPassword";
 import { Home } from "../screens/Home";
-import { Product } from "../screens/Product";
 import { Order } from "../screens/Order";
-import { Orders } from "../screens/Orders";
+import { Product } from "../screens/Product";
 
-const { Navigator, Screen } = createNativeStackNavigator();
+import { useAuth } from "../hooks/auth";
 
-export function StackRoutes() {
+import { UserTabRoutes } from "./user.tab.routes";
+
+const { Navigator, Screen, Group } = createNativeStackNavigator();
+
+export function UserStackRoutes() {
+  const { user } = useAuth();
   return (
     <Navigator
-      initialRouteName="orders"
       screenOptions={{
         headerShown: false
       }}
     >
-      {/* <Screen name="signin" component={SignIn} />
-      <Screen name="forgotPassword" component={ForgotPassword} /> */}
-      <Screen name="home" component={Home} />
-      <Screen name="product" component={Product} />
-      <Screen name="order" component={Order} />
-      <Screen name="orders" component={Orders} />
+      {user?.isAdmin ? (
+        <Group>
+          <Screen name="home" component={Home} />
+          <Screen name="product" component={Product} />
+        </Group>
+      ) : (
+        <Group>
+          <Screen name="UserTabRoutes" component={UserTabRoutes} />
+          <Screen name="order" component={Order} />
+        </Group>
+      )}
     </Navigator>
   );
 }

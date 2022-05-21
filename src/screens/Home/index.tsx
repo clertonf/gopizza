@@ -5,6 +5,8 @@ import { useTheme } from "styled-components";
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
+import { useAuth } from "../../hooks/auth";
+
 import { Search } from "../../components/Search";
 import { ProductCard, ProductProps } from "../../components/ProductCard";
 
@@ -14,6 +16,7 @@ import * as S from "./styles";
 
 export function Home() {
   const { COLORS } = useTheme();
+  const { user, signOut } = useAuth();
   const [pizzas, setPizzas] = useState<ProductProps[]>([]);
   const [search, setSearch] = useState("");
   const navigation = useNavigation();
@@ -52,7 +55,9 @@ export function Home() {
   }
 
   function handleOpen(id: string) {
-    navigation.navigate("product", {
+    const route = user?.isAdmin ? "product" : "order";
+
+    navigation.navigate(route, {
       id
     });
   }
@@ -75,7 +80,7 @@ export function Home() {
           <S.GreetingText>Olá, Admin</S.GreetingText>
         </S.Greeting>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={signOut}>
           <MaterialIcons name="logout" color={COLORS.TITLE} size={24} />
         </TouchableOpacity>
       </S.Header>
@@ -107,7 +112,9 @@ export function Home() {
         }}
       />
 
-      <S.NewProductButton title="Cadastrar pizza" onPress={handleAdd} />
+      {user?.isAdmin && (
+        <S.NewProductButton title="Cadastrar pizza" onPress={handleAdd} />
+      )}
     </S.Container>
   );
 }
