@@ -1,8 +1,8 @@
-# GoPizza - Application for ordering pizza in a restaurant (waiter and kitchen).
+# GoPizza - Aplicativo para pedir pizza em restaurante (garçom e admin)
 
-This project was developed during the React Native track, available on Rocketseat's Ignite.
+Este projeto foi desenvolvido durante a trilha React Native, disponível no Ignite da Rocketseat.
 
-## Table of contents
+## Índice
 
 - [Overview](#overview)
   - [The project](#the-project)
@@ -13,24 +13,24 @@ This project was developed during the React Native track, available on Rocketsea
 
 ## Overview
 
-### The project
+### Sobre o projeto:
 
-Users should be able to:
+Os usuários devem ser capazes de:
 
-- Create an account and login
-- Register new pizzas
-- List pizza menu
-- Make a wish
-- Order management
+- Crie uma conta e faça login
+- Registrar novas pizzas
+- Listar cardápio de pizza
+- Fazer um pedido
+- Gerenciamento de pedidos
 
-### Screenshot
+### Screenshots
 
 ![](./screenshotA.png)
 ![](./screenshotB.png)
 
-## Development process
+## Processo de desenvolvimento
 
-### Built with
+### Construído com:
 
 - React Native
 - Expo
@@ -39,10 +39,10 @@ Users should be able to:
 - Image Picker
 - Styled Components
 
-## How to run the project
+## Como executar o projeto:
 
-Clone the repository using "git clone". After that, go to the project folder and use the command "npm install" or "yarn install" to install the dependencies.
+Clone o repositório usando "git clone". Depois disso, vá para a pasta do projeto e use o comando "npm install" ou "yarn install" para instalar as dependências.
 
-Create a Firebase project and download the json file as instructed on the page.
+Crie um projeto do Firebase e baixe o arquivo JSON conforme as instruções da página.
 
-Finally use the command "npm run android" or "yarn android" to start the project (remember to have the emulator or device connected or to use the appropriate command for iOS).
+Por fim, use o comando "npm run android" ou "yarn android" para iniciar o projeto (lembre-se de ter o emulador ou dispositivo conectado ou usar o comando apropriado para iOS).
